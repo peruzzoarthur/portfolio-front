@@ -21,7 +21,7 @@ export const PostCard = ({
         to={'/publications/$postId'}
         params={{ postId: id.toString() }}
       >
-        <Card className="p-4">
+        <Card className="p-4 bg-gray-950 bg-opacity-50">
           <CardTitle>{title}</CardTitle>
           <CardDescription>
             {authors.map(
