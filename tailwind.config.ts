@@ -55,12 +55,6 @@ const config = {
                 borderRadius: '0',
               },
             },
-            code: {
-              backgroundColor: '#f5f7fa',
-              padding: '0.25rem 0.5rem',
-              borderRadius: '0.25rem',
-              color: '#d9534f',
-            },
             a: {
               textDecoration: 'underline',
               color: '#3b82f6', // GitHub-like link color
