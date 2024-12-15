@@ -21,7 +21,6 @@ export const Post = ({ id, title, authors, content, images }: PostProps) => {
     <div className="flex items-center justify-center w-full min-h-screen ">
       {/* Left bar */}
       <div className="hidden md:block w-1/12 h-full"></div>
-
       {/* Main content */}
       <div className="prose dark:prose-invert w-full max-w-3xl px-6 py-8 ">
         <h1 className="text-2xl">{title}</h1>
@@ -30,6 +29,7 @@ export const Post = ({ id, title, authors, content, images }: PostProps) => {
             {a.firstName} {a.lastName}
           </p>
         ))}
+        <Separator orientation="horizontal" />
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}

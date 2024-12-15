@@ -18,7 +18,7 @@ function RouteComponent() {
     <>
       <div className="min-h-[100vh] flex flex-col space-y-4 bg-black-100 bg-opacity-50">
         <Link to="/publications">
-          <Button variant="ghost">
+          <Button className="mt-2 h-auto w-auto " variant="ghost">
             <ArrowLeft />
           </Button>
         </Link>
