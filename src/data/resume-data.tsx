@@ -5,9 +5,9 @@ export const RESUME_DATA = {
     initials: 'AP',
     location: 'Pelotas, Brazil, GMT-3',
     locationLink: 'https://www.google.com/maps/place/Pelotas',
-    about: 'Self-taught Junior Full Stack Developer and GIS Analyst dedicated to building high-quality and detail oriented products.',
+    about: 'Self-taught Junior Full Stack Developer and Geographic Information System (GIS) Analyst dedicated to building high-quality and detail oriented products.',
     summary:
-        "As a Full Stack Engineer and GIS Analyst, I'm specializing in taking products from concept to launch, and applying my engineering skills seeking best practices and quality. I'm a fast learner and hard worker, dedicated to improve my abilities and looking forward to collaborate with projects. Currently, I work mostly with TypeScript, React, Nest.js, and PostgreSQL. I have over 8 years of experience working with GIS projects, collecting, processing and analyzing data for mapping and environmental modelling processes.",
+        "As a Full Stack Engineer and GIS Analyst, I'm focused on taking products from concept to launch, applying my engineering skills seeking best practices and quality. I'm a fast learner and hard worker, dedicated to improve my abilities and looking forward to collaborate with projects. Currently, I work mostly with TypeScript, React, Nest.js, and PostgreSQL. I have over 8 years of experience working with GIS projects, collecting, processing and analyzing data for mapping and environmental modelling processes.",
     avatarUrl: 'https://avatars.githubusercontent.com/u/73316481?v=4',
     personalWebsiteUrl: 'https://ozzurep.up.railway.app/',
     contact: {
@@ -55,7 +55,7 @@ export const RESUME_DATA = {
             link: '',
             badges: ['Remote'],
             description:
-                'Developing projects related to environmental licences. Worked mostly with GIS technologies for creating maps for stakeholders and environmental entities',
+                'Developing projects related to environmental licences. Worked mostly with GIS technologies for creating maps for stakeholders and environmental entities.',
         },
         {
             company: 'Sperzo',
@@ -79,7 +79,7 @@ export const RESUME_DATA = {
         'Docker',
         'Terraform',
         'QGIS',
-        'ArcGIS',
+        'ESRI',
         'Python',
         'Data analysis',
         'Mapping',
