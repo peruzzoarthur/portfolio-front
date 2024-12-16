@@ -1,7 +1,8 @@
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
+import ReactGA from 'react-ga4'
+import { useEffect } from 'react'
 const queryClient = new QueryClient()
 const router = createRouter({
     routeTree,
@@ -17,6 +18,10 @@ declare module '@tanstack/react-router' {
     }
 }
 function App() {
+  useEffect(() => {
+    console.log()
+    ReactGA.initialize(import.meta.env.VITE_GA)
+  }, [])
     return (
         <>
             <QueryClientProvider client={queryClient}>
