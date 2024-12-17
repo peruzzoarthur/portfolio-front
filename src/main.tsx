@@ -5,16 +5,15 @@ import App from './App'
 import { ThemeProvider } from './components/themeProvider'
 import * as Sentry from '@sentry/react'
 
-console.log(import.meta.env.VITE_SENTRY_ENVIRONMENT)
 Sentry.init({
     dsn: import.meta.env.VITE_SENTRY_DSN,
     environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
     integrations: [
         Sentry.browserTracingIntegration(),
         Sentry.replayIntegration(),
-        Sentry.feedbackIntegration({
-            colorScheme: 'dark',
-        }),
+        // Sentry.feedbackIntegration({
+        //     colorScheme: 'dark',
+        // }),
     ],
     // Performance Monitoring
     tracesSampleRate: 1.0, //  Capture 100% of the transactions
