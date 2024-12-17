@@ -5,8 +5,10 @@ import App from './App'
 import { ThemeProvider } from './components/themeProvider'
 import * as Sentry from '@sentry/react'
 
+console.log(import.meta.env.VITE_SENTRY_ENVIRONMENT)
 Sentry.init({
     dsn: import.meta.env.VITE_SENTRY_DSN,
+    environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
     integrations: [
         Sentry.browserTracingIntegration(),
         Sentry.replayIntegration(),
