@@ -6,7 +6,7 @@ import { ThemeProvider } from './components/themeProvider'
 import * as Sentry from '@sentry/react'
 
 Sentry.init({
-    dsn: 'https://80192480b246c1e9f82a94165033d447@o4506417137647616.ingest.us.sentry.io/4506417141579776',
+    dsn: import.meta.env.VITE_SENTRY_DSN,
     integrations: [
         Sentry.browserTracingIntegration(),
         Sentry.replayIntegration(),
