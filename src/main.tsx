@@ -11,9 +11,9 @@ Sentry.init({
     integrations: [
         Sentry.browserTracingIntegration(),
         Sentry.replayIntegration(),
-        // Sentry.feedbackIntegration({
-        //     colorScheme: 'dark',
-        // }),
+        Sentry.feedbackIntegration({
+            colorScheme: 'dark',
+        }),
     ],
     // Performance Monitoring
     tracesSampleRate: 1.0, //  Capture 100% of the transactions
