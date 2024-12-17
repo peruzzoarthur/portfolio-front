@@ -18,10 +18,14 @@ declare module '@tanstack/react-router' {
     }
 }
 function App() {
-  useEffect(() => {
-    console.log()
-    ReactGA.initialize(import.meta.env.VITE_GA)
-  }, [])
+    useEffect(() => {
+        ReactGA.initialize(import.meta.env.VITE_GA)
+        ReactGA.send({
+            hitType: 'pageview',
+            page: window.location.pathname,
+            title: 'App.tsx',
+        })
+    }, [])
     return (
         <>
             <QueryClientProvider client={queryClient}>
