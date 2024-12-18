@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react'
 import loading from '../../assets/loading/loading.svg'
 import { Post } from '@/components/post'
 import { useGetPostById } from '@/hooks/useGetPostById'
+import { BlogFooter } from '@/components/blog-footer'
 
 export const Route = createFileRoute('/publications/$postId')({
   component: RouteComponent,
@@ -39,6 +40,7 @@ function RouteComponent() {
             />
           )
         )}
+        <BlogFooter />
       </div>
     </>
   )
