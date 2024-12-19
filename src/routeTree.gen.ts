@@ -14,6 +14,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as PublicationsIndexImport } from './routes/publications/index'
+import { Route as PublicationsTagsImport } from './routes/publications/tags'
 import { Route as PublicationsPostIdImport } from './routes/publications/$postId'
 
 // Create Virtual Routes
@@ -44,6 +45,11 @@ const PublicationsIndexRoute = PublicationsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const PublicationsTagsRoute = PublicationsTagsImport.update({
+  path: '/publications/tags',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const PublicationsPostIdRoute = PublicationsPostIdImport.update({
   path: '/publications/$postId',
   getParentRoute: () => rootRoute,
@@ -69,6 +75,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicationsPostIdImport
       parentRoute: typeof rootRoute
     }
+    '/publications/tags': {
+      preLoaderRoute: typeof PublicationsTagsImport
+      parentRoute: typeof rootRoute
+    }
     '/publications/': {
       preLoaderRoute: typeof PublicationsIndexImport
       parentRoute: typeof rootRoute
@@ -83,6 +93,7 @@ export const routeTree = rootRoute.addChildren([
   AboutLazyRoute,
   CvLazyRoute,
   PublicationsPostIdRoute,
+  PublicationsTagsRoute,
   PublicationsIndexRoute,
 ])
 

@@ -6,6 +6,7 @@ import rehypeRaw from 'rehype-raw'
 import { Separator } from './ui/separator'
 import ReactSyntaxHighlighter from 'react-syntax-highlighter'
 import mocha from 'react-syntax-highlighter-catppuccin/mocha'
+import { LayoutWithBars } from './blog-layout-bars'
 
 type PostProps = {
   id: string
@@ -18,10 +19,7 @@ type PostProps = {
 export const Post = ({ id, title, authors, content, images }: PostProps) => {
   const contentWithImages = enhanceMarkdownWithImages(id, content, images)
   return (
-    <div className="flex items-center justify-center w-full min-h-screen ">
-      {/* Left bar */}
-      <div className="hidden md:block w-1/12 h-full"></div>
-      {/* Main content */}
+    <LayoutWithBars>
       <div className="prose dark:prose-invert w-full max-w-3xl px-6 py-8 ">
         <h1 className="text-2xl">{title}</h1>
         {authors.map((a) => (
@@ -56,9 +54,6 @@ export const Post = ({ id, title, authors, content, images }: PostProps) => {
         </ReactMarkdown>
         <Separator orientation="horizontal" />
       </div>
-
-      {/* Right bar */}
-      <div className="hidden md:block w-1/12 h-full"></div>
-    </div>
+    </LayoutWithBars>
   )
 }

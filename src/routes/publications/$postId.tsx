@@ -1,49 +1,41 @@
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { ArrowLeft } from 'lucide-react'
+import { createFileRoute } from '@tanstack/react-router'
 import loading from '../../assets/loading/loading.svg'
 import { Post } from '@/components/post'
 import { useGetPostById } from '@/hooks/useGetPostById'
 import { BlogFooter } from '@/components/blog-footer'
+import { BlogBreadcrumb } from '@/components/blog-breadcrumb'
 
 export const Route = createFileRoute('/publications/$postId')({
-    component: RouteComponent,
+  component: PostById,
 })
 
-function RouteComponent() {
-    const { postId } = Route.useParams()
-    const { post, isFetchingPost } = useGetPostById(Number(postId))
+function PostById() {
+  const { postId } = Route.useParams()
+  const { post, isFetchingPost } = useGetPostById(Number(postId))
 
-    return (
-        <>
-            <div className="min-h-[100vh] flex flex-col space-y-4 bg-black-100 bg-opacity-50">
-                <Link to="/publications">
-                    <Button className="mt-2 h-auto w-auto " variant="ghost">
-                        <ArrowLeft />
-                    </Button>
-                </Link>
-                <Separator orientation="horizontal" />
-
-                {isFetchingPost ? (
-                    <div className="flex justify-center items-center">
-                        <img src={loading} alt="loading" className="w-6 h-6" />
-                    </div>
-                ) : (
-                    post && (
-                        <>
-                            <Post
-                                id={post.id.toString()}
-                                title={post.title}
-                                authors={post.authors}
-                                content={post.content}
-                                images={post.images}
-                            />
-                            <BlogFooter />
-                        </>
-                    )
-                )}
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="min-h-[100vh] flex flex-col space-y-4 bg-black-100 bg-opacity-50">
+        <BlogBreadcrumb param={Number(postId)} />
+        {isFetchingPost ? (
+          <div className="flex justify-center items-center">
+            <img src={loading} alt="loading" className="w-6 h-6" />
+          </div>
+        ) : (
+          post && (
+            <>
+              <Post
+                id={post.id.toString()}
+                title={post.title}
+                authors={post.authors}
+                content={post.content}
+                images={post.images}
+              />
+              <BlogFooter />
+            </>
+          )
+        )}
+      </div>
+    </>
+  )
 }
