@@ -24,12 +24,12 @@ enum Tag {
 
 function PostTags() {
     return (
-        <div className="min-h-[100vh] flex flex-col space-y-4 bg-black-100 bg-opacity-50">
+        <div className="h-[100vh] flex flex-col bg-black-100 bg-opacity-50">
             <LayoutWithBars>
                 <BlogBreadcrumb param="Tags" />
-                <div className='h-[90vh]'>
-                    <h3 className="text-3xl">Tags</h3>
-                    <div className="grid grid-cols-4 space-x-2 space-y-2">
+                <div className="flex-grow flex flex-col items-center justify-center">
+                    <h3 className="text-3xl mb-4">Tags</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {Object.keys(Tag).map((tag) => (
                             <Button variant="ghost" key={tag}>
                                 #{tag.toLowerCase()}
@@ -38,7 +38,7 @@ function PostTags() {
                     </div>
                 </div>
             </LayoutWithBars>
-            <BlogFooter />
+            <BlogFooter  />
         </div>
     )
 }

@@ -2,7 +2,7 @@ import { Github, Linkedin } from 'lucide-react'
 
 export const BlogFooter = () => {
   return (
-    <footer className="w-full flex items-center justify-center pb-10 space-x-2" id="footer">
+    <footer className="w-full flex items-center justify-center pb-10 space-x-2 mt-auto" id="footer">
           <p className="md:text-base text-small md:font-normal font-light mr-2">
             Copyright © 2024 Arthur Peruzzo
           </p>
