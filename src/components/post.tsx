@@ -7,6 +7,7 @@ import { Separator } from './ui/separator'
 import ReactSyntaxHighlighter from 'react-syntax-highlighter'
 import mocha from 'react-syntax-highlighter-catppuccin/mocha'
 import { LayoutWithBars } from './blog-layout-bars'
+import { BlogBreadcrumb } from './blog-breadcrumb'
 
 type PostProps = {
   id: string
@@ -20,6 +21,7 @@ export const Post = ({ id, title, authors, content, images }: PostProps) => {
   const contentWithImages = enhanceMarkdownWithImages(id, content, images)
   return (
     <LayoutWithBars>
+        <BlogBreadcrumb param={Number(id)} />
       <div className="prose dark:prose-invert w-full max-w-3xl px-6 py-8 ">
         <h1 className="text-2xl">{title}</h1>
         {authors.map((a) => (
