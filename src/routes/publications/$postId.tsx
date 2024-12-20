@@ -16,7 +16,7 @@ function PostById() {
     <>
       <div className="min-h-[100vh] flex flex-col space-y-4 bg-black-100 bg-opacity-50">
         {isFetchingPost ? (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center mt-6">
             <img src={loading} alt="loading" className="w-6 h-6" />
           </div>
         ) : (
