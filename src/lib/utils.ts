@@ -15,18 +15,19 @@ export function useTranslation(key: keyof typeof translations) {
 }
 
 export const enhanceMarkdownWithImages = (
-    articleId: string,
+    postId: string,
     content: string,
     images: { filename: string }[]
 ) => {
+    console.log(postId)
     return content.replace(
         /!\[(.*?)\]\(images\/(.*?)\)/g,
         (match, alt, filename) => {
             const image = images.find((img) => img.filename === filename)
-
+            console.log(image)
             if (image) {
                 return `<img 
-        src="${import.meta.env.VITE_SERVER_URL}/images/${articleId}/${image.filename}"
+        src="${import.meta.env.VITE_SERVER_URL}/images/${postId}/${image.filename}"
         alt="${alt || `${filename}`}" 
         class="mx-auto"
       />`
