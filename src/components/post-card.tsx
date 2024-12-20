@@ -1,23 +1,23 @@
-import { Author } from '@/types'
-import { Card, CardContent, CardDescription, CardTitle } from './ui/card'
+import { Card, CardContent, CardDescription, CardFooter, CardTitle } from './ui/card'
 import { Link } from '@tanstack/react-router'
 import { formatUpdatedAt } from '@/lib/utils'
 import { CalendarDays } from 'lucide-react'
+import { Tag } from '@/types'
 
 type PostCardProps = {
     id: number
     title: string
-    authors: Author[]
     abstract: string
     updatedAt: string
+    tags: Tag[]
 }
 
 export const PostCard = ({
     id,
     title,
-    authors,
     abstract,
     updatedAt,
+    tags,
 }: PostCardProps) => {
     return (
         <>
@@ -30,14 +30,11 @@ export const PostCard = ({
                     <CardDescription>
                         <div className="flex items-center">
                             <CalendarDays className="mr-1" />
-                            {formatUpdatedAt(updatedAt)} by {" "}
-                            {authors.map(
-                                (author, index) =>
-                                    `${author.firstName} ${author.lastName}${index < authors.length - 1 ? ', ' : ''}`
-                            )}
+                            {formatUpdatedAt(updatedAt)} by{' '}
                         </div>
                     </CardDescription>
                     <CardContent>{abstract}</CardContent>
+                    <CardFooter>{tags.map((t) => <p className="mr-1">#{t.toLowerCase()}</p>)}</CardFooter>
                 </Card>
             </Link>
         </>

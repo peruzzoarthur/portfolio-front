@@ -8,6 +8,7 @@ export type Post = {
   publishedAt: string
   createdAt: string
   updatedAt: string
+  tags: Tag[]
 }
 
 export type Author = {
@@ -23,4 +24,18 @@ export type Image = {
     type: string
     data: number[]
   }
+}
+
+export enum Tag {
+    AWS = 'AWS',
+    GIS = 'GIS',
+    IAC = 'IAC',
+    NEST = 'NEST',
+    POSTGRES = 'POSTGRES',
+    PRISMA = 'PRISMA',
+    PYTHON = 'PYTHON',
+    REACT = 'REACT',
+    TERRAFORM = 'TERRAFORM',
+    TEST = 'TEST',
+    TYPEORM = 'TYPEORM',
 }
