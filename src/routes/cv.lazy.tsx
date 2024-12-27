@@ -165,10 +165,10 @@ function Cv() {
                     </Section>
                     <Section>
                         <h2 className="text-xl font-bold">Education</h2>
-                        {RESUME_DATA.education.map((education) => {
+                        {RESUME_DATA.education.map((education, index) => {
                             return (
                                 <Card
-                                    key={education.school}
+                                    key={index}
                                     className="bg-gray-950 bg-opacity-50"
                                 >
                                     <CardHeader>

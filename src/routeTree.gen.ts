@@ -14,8 +14,9 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as PublicationsIndexImport } from './routes/publications/index'
-import { Route as PublicationsTagsImport } from './routes/publications/tags'
 import { Route as PublicationsPostIdImport } from './routes/publications/$postId'
+import { Route as PublicationsTagsIndexImport } from './routes/publications/tags/index'
+import { Route as PublicationsTagsTagImport } from './routes/publications/tags/$tag'
 
 // Create Virtual Routes
 
@@ -45,13 +46,18 @@ const PublicationsIndexRoute = PublicationsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const PublicationsTagsRoute = PublicationsTagsImport.update({
-  path: '/publications/tags',
+const PublicationsPostIdRoute = PublicationsPostIdImport.update({
+  path: '/publications/$postId',
   getParentRoute: () => rootRoute,
 } as any)
 
-const PublicationsPostIdRoute = PublicationsPostIdImport.update({
-  path: '/publications/$postId',
+const PublicationsTagsIndexRoute = PublicationsTagsIndexImport.update({
+  path: '/publications/tags/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PublicationsTagsTagRoute = PublicationsTagsTagImport.update({
+  path: '/publications/tags/$tag',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -75,12 +81,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicationsPostIdImport
       parentRoute: typeof rootRoute
     }
-    '/publications/tags': {
-      preLoaderRoute: typeof PublicationsTagsImport
-      parentRoute: typeof rootRoute
-    }
     '/publications/': {
       preLoaderRoute: typeof PublicationsIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/publications/tags/$tag': {
+      preLoaderRoute: typeof PublicationsTagsTagImport
+      parentRoute: typeof rootRoute
+    }
+    '/publications/tags/': {
+      preLoaderRoute: typeof PublicationsTagsIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -93,8 +103,9 @@ export const routeTree = rootRoute.addChildren([
   AboutLazyRoute,
   CvLazyRoute,
   PublicationsPostIdRoute,
-  PublicationsTagsRoute,
   PublicationsIndexRoute,
+  PublicationsTagsTagRoute,
+  PublicationsTagsIndexRoute,
 ])
 
 /* prettier-ignore-end */

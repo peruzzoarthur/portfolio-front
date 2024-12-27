@@ -2,7 +2,6 @@ import { Link } from '@tanstack/react-router'
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -17,9 +16,7 @@ export const BlogBreadcrumb = ({ param }: BlogBreadcrumbProps) => {
     <Breadcrumb className="p-2">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink>
             <Link to="/publications">Publications</Link>
-          </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>

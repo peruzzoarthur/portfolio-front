@@ -1,4 +1,10 @@
-import { Card, CardContent, CardDescription, CardFooter, CardTitle } from './ui/card'
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardTitle,
+} from './ui/card'
 import { Link } from '@tanstack/react-router'
 import { formatUpdatedAt } from '@/lib/utils'
 import { CalendarDays } from 'lucide-react'
@@ -27,14 +33,18 @@ export const PostCard = ({
             >
                 <Card className="p-4 bg-gray-950 bg-opacity-50 mb-2">
                     <CardTitle>{title}</CardTitle>
-                    <CardDescription>
-                        <div className="flex items-center">
-                            <CalendarDays className="mr-1" />
-                            {formatUpdatedAt(updatedAt)} by{' '}
-                        </div>
+                    <CardDescription className="flex items-center">
+                        <CalendarDays className="mr-1" />
+                        {formatUpdatedAt(updatedAt)} by{' '}
                     </CardDescription>
                     <CardContent>{abstract}</CardContent>
-                    <CardFooter>{tags.map((t) => <p className="mr-1">#{t.toLowerCase()}</p>)}</CardFooter>
+                    <CardFooter>
+                        {tags.map((t) => (
+                            <p className="mr-1" key={t}>
+                                #{t.toLowerCase()}
+                            </p>
+                        ))}
+                    </CardFooter>
                 </Card>
             </Link>
         </>
