@@ -16,7 +16,6 @@ function PostById() {
     const filteredPosts = posts?.filter((p) =>
         p.tags.includes(tag.toUpperCase() as Tag)
     )
-    console.log(filteredPosts)
     return (
         <div className=" bg-black-100 bg-opacity-50">
             <div className="min-h-[110vh] p-4 flex flex-col space-y-4">
