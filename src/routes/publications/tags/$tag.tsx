@@ -5,12 +5,13 @@ import { useGetPosts } from '@/hooks/useGetPosts'
 import { LayoutWithBars } from '@/components/blog-layout-bars'
 import { PostCard } from '@/components/post-card'
 import { Tag } from '@/types'
+import { BlogBreadcrumb } from '@/components/blog-breadcrumb'
 
 export const Route = createFileRoute('/publications/tags/$tag')({
-    component: PostById,
+    component: PostsByTag,
 })
 
-function PostById() {
+function PostsByTag() {
     const { tag } = Route.useParams()
     const { posts, isFetchingPosts } = useGetPosts()
     const filteredPosts = posts?.filter((p) =>
@@ -20,6 +21,7 @@ function PostById() {
         <div className=" bg-black-100 bg-opacity-50">
             <div className="min-h-[110vh] p-4 flex flex-col space-y-4">
                 <LayoutWithBars>
+                    <BlogBreadcrumb param={tag.toUpperCase() as Tag} />
                     <h2 className="text-2xl mb-2 mt-10">Posts</h2>
                     {isFetchingPosts ? (
                         <div className="flex justify-center items-center">

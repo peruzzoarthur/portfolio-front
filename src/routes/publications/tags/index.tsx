@@ -3,7 +3,7 @@ import { BlogFooter } from '@/components/blog-footer'
 import { LayoutWithBars } from '@/components/blog-layout-bars'
 import { Button } from '@/components/ui/button'
 import { useGetUsedTags } from '@/hooks/useGetUsedTags'
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import loading from '../../../assets/loading/loading.svg'
 
 export const Route = createFileRoute('/publications/tags/')({
@@ -26,7 +26,12 @@ function PostTags() {
                             {usedTags &&
                                 usedTags.map((tag) => (
                                     <Button variant="ghost" key={tag}>
-                                        #{tag.toLowerCase()}
+                                        <Link
+                                            to="/publications/tags/$tag"
+                                            params={{ tag: tag.toLowerCase() }}
+                                        >
+                                            #{tag.toLowerCase()}
+                                        </Link>
                                     </Button>
                                 ))}
                         </div>
