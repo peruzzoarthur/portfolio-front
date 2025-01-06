@@ -15,6 +15,7 @@ export type Author = {
     id: string
     firstName: string
     lastName: string
+    pictureUrl: string
 }
 
 export type Image = {

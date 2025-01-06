@@ -7,7 +7,7 @@ import {
 } from './ui/card'
 import { Link } from '@tanstack/react-router'
 import { formatUpdatedAt } from '@/lib/utils'
-import { Tag } from '@/types'
+import { Author, Tag } from '@/types'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 
 type PostCardProps = {
@@ -16,14 +16,15 @@ type PostCardProps = {
     abstract: string
     updatedAt: string
     tags: Tag[]
+    authors: Author[]
 }
-
 export const PostCard = ({
     id,
     title,
     abstract,
     updatedAt,
     tags,
+    authors,
 }: PostCardProps) => {
     return (
         <>
@@ -34,15 +35,17 @@ export const PostCard = ({
                 <Card className="p-4 bg-gray-950 bg-opacity-50 mb-2">
                     <CardTitle className="text-xl">{title}</CardTitle>
                     <CardDescription className="flex items-center">
-                        <Avatar className="size-8 mr-2">
-                            <AvatarImage
-                                alt={'Arthur Peruzzo'}
-                                src={
-                                    'https://avatars.githubusercontent.com/u/73316481?v=4'
-                                }
-                            />
-                            <AvatarFallback>{'AP'}</AvatarFallback>
-                        </Avatar>
+                        {authors.map((a) => (
+                            <Avatar key={a.pictureUrl} className="size-8 mr-2">
+                                <AvatarImage
+                                    alt={`${a.firstName} ${a.lastName}`}
+                                    src={a.pictureUrl}
+                                />
+                                <AvatarFallback>
+                                    {`${a.firstName[0]?.toUpperCase()}${a.lastName[0]?.toUpperCase()}`}
+                                </AvatarFallback>
+                            </Avatar>
+                        ))}
                         {formatUpdatedAt(updatedAt)}
                     </CardDescription>
                     <CardContent>{abstract}</CardContent>
