@@ -41,6 +41,7 @@ function PostsByTag() {
                                 abstract={post.abstract}
                                 updatedAt={post.updatedAt}
                                 tags={post.tags}
+                                authors={post.authors}
                             />
                         ))
                     )}
