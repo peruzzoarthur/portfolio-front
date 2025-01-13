@@ -24,6 +24,7 @@ function PostById() {
             <>
               <Post
                 id={post.id.toString()}
+                updatedAt={post.updatedAt}
                 title={post.title}
                 authors={post.authors}
                 content={post.content}
