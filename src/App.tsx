@@ -19,12 +19,14 @@ declare module '@tanstack/react-router' {
 }
 function App() {
     useEffect(() => {
-        ReactGA.initialize(import.meta.env.VITE_GA)
-        ReactGA.send({
-            hitType: 'pageview',
-            page: window.location.pathname,
-            title: 'App.tsx',
-        })
+        if (import.meta.env.VITE_GA) {
+            ReactGA.initialize(import.meta.env.VITE_GA)
+            ReactGA.send({
+                hitType: 'pageview',
+                page: window.location.pathname,
+                title: 'App.tsx',
+            })
+        }
     }, [])
     return (
         <>
