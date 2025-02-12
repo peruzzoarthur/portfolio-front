@@ -6,12 +6,17 @@ import { LayoutWithBars } from '@/components/blog-layout-bars'
 import { BlogFooter } from '@/components/blog-footer'
 import { Separator } from '@/components/ui/separator'
 import { Github, Linkedin } from 'lucide-react'
+import { useState } from 'react'
+import { ListTypeMenubar } from '@/components/list-type-menubar'
+
+export type ListType = 'posts' | 'tags' | 'series'
 
 export const Route = createFileRoute('/publications/')({
-    component: RouteComponent,
+    component: BlogIndex,
 })
 
-function RouteComponent() {
+function BlogIndex() {
+    const [listType, setListType] = useState<ListType>('posts')
     const { posts, isFetchingPosts } = useGetPosts()
 
     return (
@@ -47,6 +52,7 @@ function RouteComponent() {
                         </a>
                     </div>
                     <Separator className="my-10" />
+                    <ListTypeMenubar listType={listType} setListType={setListType} />
                     {isFetchingPosts ? (
                         <div className="flex justify-center items-center">
                             <img
