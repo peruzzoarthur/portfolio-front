@@ -49,15 +49,15 @@ export const PostCard = ({
                         {formatUpdatedAt(updatedAt)}
                     </CardDescription>
                     <CardContent>{abstract}</CardContent>
-                    <CardFooter>
-                        {tags.map((t) => (
-                            <p className="mr-1" key={t}>
-                                #{t.toLowerCase()}
-                            </p>
-                        ))}
-                    </CardFooter>
                 </Card>
             </Link>
         </>
     )
 }
+//   <CardFooter>
+// {tags.map((t) => (
+//   <p className="mr-1" key={t}>
+//     #{t.toLowerCase()}
+//   </p>
+// ))}
+// </CardFooter>
