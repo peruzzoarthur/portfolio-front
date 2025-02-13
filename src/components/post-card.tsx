@@ -2,7 +2,7 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
+    // CardFooter,
     CardTitle,
 } from './ui/card'
 import { Link } from '@tanstack/react-router'
@@ -23,7 +23,7 @@ export const PostCard = ({
     title,
     abstract,
     updatedAt,
-    tags,
+    // tags,
     authors,
 }: PostCardProps) => {
     return (
